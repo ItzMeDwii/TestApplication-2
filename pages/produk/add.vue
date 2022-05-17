@@ -109,7 +109,7 @@ export default {
   methods: {
     addProduk (produk) {
       this.$router.replace({ path: '/' })
-      this.$store.commit('produk/add', produk)
+      this.$store.commit('produk/add', produk, false)
     }
   }
 }

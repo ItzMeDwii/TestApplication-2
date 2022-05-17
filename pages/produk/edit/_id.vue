@@ -21,7 +21,7 @@
         <h1 class="text-4xl font-bold mb-5">
           Edit Produk: {{ produk.nama }}
         </h1>
-        <form action="javascript:void(0)" @submit="editProduk(produk.id, produk)">
+        <form action="javascript:void(0)" @submit="editProduk(produk)">
           <div class="grid gap-6 mb-6 lg:grid-cols-2">
             <div>
               <label for="nama" class="block mb-2 text-sm font-medium text-gray-900">Nama</label>
@@ -99,7 +99,8 @@ export default {
         desc: '',
         harga: '',
         rating: '',
-        likes: ''
+        likes: '',
+        edit: true
       },
       // eslint-disable-next-line eqeqeq
       importProduk: this.$store.state.produk.listproduk.find(x => x.id == this.$route.params.id) ? this.$store.state.produk.listproduk.find(x => x.id == this.$route.params.id) : this.$router.replace({ path: '/' })
@@ -112,14 +113,15 @@ export default {
       desc: this.importProduk.desc,
       harga: this.importProduk.harga,
       rating: this.importProduk.rating,
-      likes: this.importProduk.likes
+      likes: this.importProduk.likes,
+      edit: true
     }
   },
   methods: {
-    editProduk (id, produk) {
+    editProduk (produk) {
       this.$router.replace({ path: '/' })
       // eslint-disable-next-line no-console
-      this.$store.commit('produk/edit', id, produk.nama, produk.desc, produk.harga, produk.rating, produk.likes)
+      this.$store.commit('produk/add', produk)
     }
   }
 }

@@ -54,29 +54,30 @@ export const state = () => ({
 
 export const mutations = {
   add (state, produk) {
-    state.listproduk.push({
-      id: state.listproduk.length + 1,
-      nama: produk.nama,
-      desc: produk.desc,
-      harga: produk.harga,
-      rating: produk.rating,
-      likes: produk.likes
-    })
-  },
-  edit (state, id, nama, desc, harga, rating, likes) {
-    console.log(nama)
-    // eslint-disable-next-line eqeqeq
-    state.listproduk.find(x => x.id == id)
+    if (!produk.edit) {
+      state.listproduk.push({
+        id: state.listproduk.length + 1,
+        nama: produk.nama,
+        desc: produk.desc,
+        harga: produk.harga,
+        rating: produk.rating,
+        likes: produk.likes
+      })
+    }
+    if (produk.edit) {
       // eslint-disable-next-line eqeqeq
-      ? state.listproduk[state.listproduk.indexOf(state.listproduk.find(x => x.id == id))] = {
-        id,
-        nama,
-        desc,
-        harga,
-        rating,
-        likes
-      }
-      : console.log('Produk tidak ada.')
+      state.listproduk.find(x => x.id == produk.id)
+        // eslint-disable-next-line eqeqeq
+        ? state.listproduk[state.listproduk.indexOf(state.listproduk.find(x => x.id == produk.id))] = {
+          id: produk.id,
+          nama: produk.nama,
+          desc: produk.desc,
+          harga: produk.harga,
+          rating: produk.rating,
+          likes: produk.likes
+        }
+        : console.log('Produk tidak ada.')
+    }
   },
   remove (state, produk) {
     state.listproduk.splice(state.listproduk.indexOf(produk), 1)
