@@ -1,4 +1,6 @@
 /* eslint-disable no-console */
+const { v4: uuidv4 } = require('uuid')
+
 export const state = () => ({
   listproduk: [
     {
@@ -56,7 +58,7 @@ export const mutations = {
   add (state, produk) {
     if (!produk.edit) {
       state.listproduk.push({
-        id: state.listproduk.length + 1,
+        id: uuidv4(),
         nama: produk.nama,
         desc: produk.desc,
         harga: produk.harga,
