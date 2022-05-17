@@ -1,8 +1,23 @@
 <template>
   <div class="flex justify-center">
-    <div class="container rounded-lg my-10 shadow-xl bg-gray-200 p-3">
-      <div class="grid grid-cols-4 gap-6">
-        <div v-for="(item, index) in listproduk" :key="index" class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+    <div class="container">
+      <nav class="shadow bg-gray-200 border-gray-200 px-2 sm:px-4 py-2.5 rounded mt-6">
+        <div class="container flex flex-wrap justify-between items-center mx-auto">
+          <a href="/" class="flex items-center">
+            <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Aplikasi Data Produk</span>
+          </a>
+          <div class="w-auto">
+            <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
+              <li>
+                <a href="#" class="block py-2 px-3 text-white text-lg bg-blue-700 rounded text-center" aria-current="page">Add Produk</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-6 bg-gray-200 rounded-lg my-10 p-3">
+        <div v-for="(item, index) in listproduk" :key="index" class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md">
           <img class="rounded-t-lg" src="https://dwii.my.id/preview/wip.webp" alt="">
 
           <div class="p-5">
