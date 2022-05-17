@@ -53,27 +53,29 @@ export const state = () => ({
 })
 
 export const mutations = {
-  add (state, nama, desc, harga, rating, likes) {
+  add (state, produk) {
     state.listproduk.push({
-      nama,
-      desc,
-      harga,
-      rating,
-      likes
+      id: state.listproduk.length + 1,
+      nama: produk.nama,
+      desc: produk.desc,
+      harga: produk.harga,
+      rating: produk.rating,
+      likes: produk.likes
     })
   },
-  edit (state, { produk }, nama, desc, harga, rating, likes) {
+  edit (state, produk) {
     state.listproduk[state.listproduk.indexOf(produk)]
       ? state.listproduk[state.listproduk.indexOf(produk)] = {
-        nama,
-        desc,
-        harga,
-        rating,
-        likes
+        id: produk.id,
+        nama: produk.nama,
+        desc: produk.desc,
+        harga: produk.harga,
+        rating: produk.rating,
+        likes: produk.likes
       }
       : console.log('Produk tidak ada.')
   },
-  remove (state, { produk }) {
+  remove (state, produk) {
     state.listproduk.splice(state.listproduk.indexOf(produk), 1)
   }
 }

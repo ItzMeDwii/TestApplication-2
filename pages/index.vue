@@ -3,31 +3,35 @@
     <div class="container">
       <nav class="shadow bg-gray-200 border-gray-200 px-2 sm:px-4 py-2.5 rounded mt-6">
         <div class="container flex flex-wrap justify-between items-center mx-auto">
-          <a href="/" class="flex items-center">
+          <NuxtLink to="/" class="flex items-center">
             <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Aplikasi Data Produk</span>
-          </a>
+          </NuxtLink>
           <div class="w-auto">
             <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
               <li>
-                <a href="#" class="block py-2 px-3 text-white text-lg bg-blue-700 rounded text-center" aria-current="page">Add Produk</a>
+                <NuxtLink to="/produk/add" class="block py-2 px-3 text-lg bg-blue-700 text-white rounded text-center" aria-current="page">
+                  Add Produk
+                </NuxtLink>
               </li>
             </ul>
           </div>
         </div>
       </nav>
 
-      <div class="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-6 bg-gray-200 rounded-lg my-10 p-3">
-        <div v-for="(item, index) in listproduk" :key="index" class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md">
+      <div class="grid xl:grid-cols-5 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6 bg-gray-200 rounded-lg my-10 p-3">
+        <div v-for="(item, index) in listproduk" :key="index" class="max-w bg-white rounded-lg border border-gray-200 shadow-md">
           <img class="rounded-t-lg" src="https://dwii.my.id/preview/wip.webp" alt="">
 
           <div class="p-5">
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
               {{ item.nama }}
             </h5>
-            <NuxtLink :to="`/produk/${item.id}`" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-              Read more
-              <svg class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+            <NuxtLink :to="`/produk/${item.id}`" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
+              Lihat Produk
             </NuxtLink>
+            <button class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300" @click="removeProduk(item)">
+              Hapus Produk
+            </button>
           </div>
         </div>
       </div>
@@ -37,9 +41,14 @@
 
 <script>
 export default {
-  data () {
-    return {
-      listproduk: this.$store.state.produk.listproduk
+  computed: {
+    listproduk () {
+      return this.$store.state.produk.listproduk
+    }
+  },
+  methods: {
+    removeProduk (produk) {
+      this.$store.commit('produk/remove', produk)
     }
   }
 }
