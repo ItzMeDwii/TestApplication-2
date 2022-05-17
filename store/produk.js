@@ -63,15 +63,18 @@ export const mutations = {
       likes: produk.likes
     })
   },
-  edit (state, produk) {
-    state.listproduk[state.listproduk.indexOf(produk)]
-      ? state.listproduk[state.listproduk.indexOf(produk)] = {
-        id: produk.id,
-        nama: produk.nama,
-        desc: produk.desc,
-        harga: produk.harga,
-        rating: produk.rating,
-        likes: produk.likes
+  edit (state, id, nama, desc, harga, rating, likes) {
+    console.log(nama)
+    // eslint-disable-next-line eqeqeq
+    state.listproduk.find(x => x.id == id)
+      // eslint-disable-next-line eqeqeq
+      ? state.listproduk[state.listproduk.indexOf(state.listproduk.find(x => x.id == id))] = {
+        id,
+        nama,
+        desc,
+        harga,
+        rating,
+        likes
       }
       : console.log('Produk tidak ada.')
   },

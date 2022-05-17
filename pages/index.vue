@@ -26,10 +26,13 @@
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
               {{ item.nama }}
             </h5>
-            <NuxtLink :to="`/produk/${item.id}`" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
+            <NuxtLink :to="`/produk/${item.id}`" class="m-1 inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
               Lihat Produk
             </NuxtLink>
-            <button class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300" @click="removeProduk(item)">
+            <NuxtLink :to="`/produk/edit/${item.id}`" class="m-1 inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300">
+              Edit Produk
+            </NuxtLink>
+            <button class="m-1 inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300" @click="removeProduk(item)">
               Hapus Produk
             </button>
           </div>

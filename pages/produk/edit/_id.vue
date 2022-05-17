@@ -19,9 +19,9 @@
       </nav>
       <div class="rounded-lg my-10 shadow-xl bg-gray-200 p-3">
         <h1 class="text-4xl font-bold mb-5">
-          Add Produk
+          Edit Produk: {{ produk.nama }}
         </h1>
-        <form action="javascript:void(0)" @submit="addProduk(produk)">
+        <form action="javascript:void(0)" @submit="editProduk(produk.id, produk)">
           <div class="grid gap-6 mb-6 lg:grid-cols-2">
             <div>
               <label for="nama" class="block mb-2 text-sm font-medium text-gray-900">Nama</label>
@@ -92,24 +92,34 @@
 export default {
   data () {
     return {
+      // eslint-disable-next-line eqeqeq
       produk: {
+        id: '',
         nama: '',
         desc: '',
         harga: '',
         rating: '',
         likes: ''
-      }
+      },
+      // eslint-disable-next-line eqeqeq
+      importProduk: this.$store.state.produk.listproduk.find(x => x.id == this.$route.params.id) ? this.$store.state.produk.listproduk.find(x => x.id == this.$route.params.id) : this.$router.replace({ path: '/' })
     }
   },
-  computed: {
-    listproduk () {
-      return this.$store.state.produk.listproduk
+  created () {
+    this.produk = {
+      id: this.importProduk.id,
+      nama: this.importProduk.nama,
+      desc: this.importProduk.desc,
+      harga: this.importProduk.harga,
+      rating: this.importProduk.rating,
+      likes: this.importProduk.likes
     }
   },
   methods: {
-    addProduk (produk) {
+    editProduk (id, produk) {
       this.$router.replace({ path: '/' })
-      this.$store.commit('produk/add', produk)
+      // eslint-disable-next-line no-console
+      this.$store.commit('produk/edit', id, produk.nama, produk.desc, produk.harga, produk.rating, produk.likes)
     }
   }
 }
