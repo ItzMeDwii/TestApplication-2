@@ -126,7 +126,7 @@ export default {
       // SORTED data
       setTimeout(() => {
         // eslint-disable-next-line eqeqeq
-        this.listdata.sort((a, b) => ((a.harga - b.harga) == -1) ? (a.harga == b.harga ? (a.rating == b.rating ? b.likes - a.likes : b.rating - a.rating) : a.harga - b.harga) : a.harga - b.harga).map((x) => {
+        this.listdata.sort((a, b) => (a.harga == b.harga ? (a.rating == b.rating ? b.likes - a.likes : b.rating - a.rating) : a.harga - b.harga)).map((x) => {
           return this.listproduk.push(x)
         })
       }, 500)
