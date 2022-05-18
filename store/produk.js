@@ -62,7 +62,7 @@ export const mutations = {
         nama: produk.nama,
         desc: produk.desc,
         harga: parseInt(produk.harga),
-        rating: parseFloat(produk.rating).toFixed(1),
+        rating: Number.isInteger(parseFloat(produk.rating)) ? parseInt(produk.rating) : parseFloat(produk.rating).toFixed(1),
         likes: parseInt(produk.likes)
       })
     }
@@ -75,7 +75,7 @@ export const mutations = {
           nama: produk.nama,
           desc: produk.desc,
           harga: parseInt(produk.harga),
-          rating: parseFloat(produk.rating).toFixed(1),
+          rating: Number.isInteger(parseFloat(produk.rating)) ? parseInt(produk.rating) : parseFloat(produk.rating).toFixed(1),
           likes: parseInt(produk.likes)
         }
         : console.log('Produk tidak ada.')
