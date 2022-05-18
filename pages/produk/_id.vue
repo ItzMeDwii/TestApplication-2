@@ -7,7 +7,7 @@
             <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Aplikasi Data Produk</span>
           </NuxtLink>
           <div class="w-auto">
-            <ul class="flex flex-col lg:mt-4 mt-0 md:flex-row md:space-x-8 md:text-sm md:font-medium">
+            <ul class="flex flex-col mt-0 md:flex-row md:space-x-8 md:text-sm md:font-medium">
               <li>
                 <NuxtLink to="/" class="block py-2 px-3 text-lg text-blue-700 rounded text-center" aria-current="page">
                   Back to home
