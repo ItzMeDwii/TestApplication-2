@@ -9,6 +9,11 @@
           <div class="w-auto">
             <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
               <li>
+                <NuxtLink to="/tableproduk" class="block py-2 px-3 text-lg text-blue-700 rounded text-center" aria-current="page">
+                  Table Produk
+                </NuxtLink>
+              </li>
+              <li>
                 <NuxtLink to="/kalkulator" class="block py-2 px-3 text-lg text-blue-700 rounded text-center" aria-current="page">
                   Kalkulator
                 </NuxtLink>
