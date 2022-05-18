@@ -50,7 +50,7 @@
               <input
                 id="harga"
                 v-model="produk.harga"
-                type="text"
+                type="number"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 placeholder=""
                 required
@@ -61,7 +61,10 @@
               <input
                 id="rating"
                 v-model="produk.rating"
-                type="text"
+                step="0.1"
+                min="1.0"
+                max="5.0"
+                type="number"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 placeholder=""
                 required
@@ -72,7 +75,7 @@
               <input
                 id="likes"
                 v-model="produk.likes"
-                type="text"
+                type="number"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 placeholder=""
                 required

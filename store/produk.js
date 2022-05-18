@@ -61,9 +61,9 @@ export const mutations = {
         id: uuidv4(),
         nama: produk.nama,
         desc: produk.desc,
-        harga: produk.harga,
-        rating: produk.rating,
-        likes: produk.likes
+        harga: parseInt(produk.harga),
+        rating: parseFloat(produk.rating).toFixed(1),
+        likes: parseInt(produk.likes)
       })
     }
     if (produk.edit) {
@@ -74,9 +74,9 @@ export const mutations = {
           id: produk.id,
           nama: produk.nama,
           desc: produk.desc,
-          harga: produk.harga,
-          rating: produk.rating,
-          likes: produk.likes
+          harga: parseInt(produk.harga),
+          rating: parseFloat(produk.rating).toFixed(1),
+          likes: parseInt(produk.likes)
         }
         : console.log('Produk tidak ada.')
     }

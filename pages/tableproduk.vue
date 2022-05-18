@@ -98,6 +98,7 @@ export default {
   },
   data () {
     return {
+      listdata: [],
       listproduk: [],
       page: 1,
       perPage: 10,
@@ -119,8 +120,13 @@ export default {
   },
   methods: {
     getlistproduk () {
-      // eslint-disable-next-line eqeqeq
-      this.$store.state.produk.listproduk.map((x) => { return this.listproduk.sort((a, b) => a.harga == b.harga ? (a.rating == b.rating ? b.likes - a.likes : b.rating - a.rating) : a.harga - b.harga).push(x) })
+      this.$store.state.produk.listproduk.map(x => this.listdata.push(x))
+      setTimeout(() => {
+        // eslint-disable-next-line eqeqeq
+        this.listdata.sort((a, b) => ((a.harga - b.harga) == -1) ? (a.harga == b.harga ? (a.rating == b.rating ? b.likes - a.likes : b.rating - a.rating) : a.harga - b.harga) : a.harga - b.harga).map((x) => {
+          return this.listproduk.push(x)
+        })
+      }, 500)
     },
     setPages () {
       const numberOfPages = Math.ceil(this.listproduk.length / this.perPage)
