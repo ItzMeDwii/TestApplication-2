@@ -120,7 +120,10 @@ export default {
   },
   methods: {
     getlistproduk () {
+      // RAW data karena VUEX tidak bisa di edit langsung
       this.$store.state.produk.listproduk.map(x => this.listdata.push(x))
+
+      // SORTED data
       setTimeout(() => {
         // eslint-disable-next-line eqeqeq
         this.listdata.sort((a, b) => ((a.harga - b.harga) == -1) ? (a.harga == b.harga ? (a.rating == b.rating ? b.likes - a.likes : b.rating - a.rating) : a.harga - b.harga) : a.harga - b.harga).map((x) => {
