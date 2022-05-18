@@ -1,13 +1,13 @@
 <template>
   <div class="flex justify-center">
     <div class="container">
-      <nav class="shadow bg-gray-200 border-gray-200 px-2 sm:px-4 py-2.5 rounded mt-6">
+      <nav class="shadow bg-gray-200 border-gray-200 px-2 sm:px-4 py-2.5 rounded mt-0 md:mt-6">
         <div class="container flex flex-wrap justify-between items-center mx-auto">
           <NuxtLink to="/" class="flex items-center">
             <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Aplikasi Kalkulator</span>
           </NuxtLink>
           <div class="w-auto">
-            <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
+            <ul class="flex flex-col lg:mt-4 mt-0 md:flex-row md:space-x-8 md:text-sm md:font-medium">
               <li>
                 <NuxtLink to="/" class="block py-2 px-3 text-lg text-blue-700 rounded text-center" aria-current="page">
                   Back to home
